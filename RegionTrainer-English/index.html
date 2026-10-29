@@ -1,6 +1,6 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no"><meta name="theme-color" content="#f6f7fb"><link rel="manifest" href="./manifest.webmanifest"><link rel="apple-touch-icon" href="./icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><title>Region Trainer</title><style>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f6f7fb"><link rel="manifest" href="./manifest.webmanifest"><link rel="apple-touch-icon" href="./icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><title>Region Trainer</title><style>
 :root{font-family:-apple-system,BlinkMacSystemFont,system-ui,sans-serif;color:#202b42;background:#f6f7fb}*{box-sizing:border-box}body{margin:0}button{font:inherit;cursor:pointer}button:disabled{opacity:.45;cursor:default}.app{max-width:760px;margin:auto;min-height:100dvh;padding:env(safe-area-inset-top) 15px calc(env(safe-area-inset-bottom) + 20px)}header{display:flex;align-items:center;justify-content:space-between;padding:25px 4px 22px}h1{font-size:25px;letter-spacing:-.8px;margin:0}h2{font-size:21px;letter-spacing:-.5px;margin:0}.muted{color:#768298}.small{font-size:13px}.brand{font-size:12px;font-weight:800;letter-spacing:2px;color:#5874ca}.countries{display:grid;gap:13px;margin-top:22px}.country{background:#fff;border:1px solid #e9ecf4;border-radius:18px;padding:20px;text-align:left;display:flex;align-items:center;gap:17px;box-shadow:0 6px 22px #18274808}.flag{font-size:36px}.country strong{display:block;font-size:19px}.country .arrow{margin-left:auto;font-size:22px;color:#8a96ad}.panel{background:#fff;border:1px solid #e9ecf4;border-radius:20px;box-shadow:0 5px 24px #1c2c5008;padding:17px}.topline{display:flex;align-items:center;justify-content:space-between;gap:12px}.ghost{background:none;border:0;color:#5573c4;font-weight:650;padding:8px 4px}.pill{font-size:12px;color:#6f7e9c;background:#f0f3fa;padding:7px 10px;border-radius:30px;font-weight:650}.question{font-size:26px;font-weight:750;letter-spacing:-.7px;margin:9px 0 16px}.question span{color:#4e6bd0}.progress{height:7px;background:#edf0f6;border-radius:9px;overflow:hidden;margin:11px 0 18px}.progress>div{height:100%;background:#5377d6;width:0%;transition:width .3s}.mapwrap{position:relative;border-radius:15px;background:#ecf2f7;overflow:hidden;touch-action:pan-x pan-y;min-height:290px;display:flex;align-items:center;justify-content:center}.mapwrap svg{display:block;width:100%;height:auto;max-height:66dvh;touch-action:manipulation}.region{fill:#d6e0eb;stroke:#fff;stroke-width:.85;vector-effect:non-scaling-stroke;cursor:pointer;transition:fill .12s}.region:active{fill:#a7b6d0}.region.done{fill:#a9cbba}.region.wrong{fill:#ec8c87}.region.correct{fill:#4cb58a}.region.study{fill:#7d9ce2}.feedback{min-height:42px;display:flex;align-items:center;font-size:14px;font-weight:650}.feedback.good{color:#20885e}.feedback.bad{color:#c45550}.controls{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}.primary{border:0;background:#4e70cf;color:white;border-radius:12px;padding:13px 19px;font-weight:700}.secondary{border:1px solid #dfe5f0;background:#fff;color:#435471;border-radius:12px;padding:12px 15px;font-weight:650}.settings{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0}.settings label{font-size:13px;color:#5f6c82}.settings select{border:1px solid #dee4ef;border-radius:10px;background:white;padding:9px;font:inherit;color:#273550}.error{color:#b34542;line-height:1.5}.busy{line-height:1.6}.stats{display:flex;gap:15px;margin:5px 0 14px;font-size:13px;color:#7a879b}.stats strong{color:#334663}.result{text-align:center;padding:35px 12px}.bigscore{font-size:60px;font-weight:800;letter-spacing:-3px;margin:18px 0 0}.footer{margin-top:21px;text-align:center;color:#929aac;font-size:11px;line-height:1.6}.hidden{display:none!important}@media(min-width:620px){.countries{grid-template-columns:repeat(3,1fr)}.country{display:block;text-align:center}.country .arrow{display:none}.country .flag{display:block;margin-bottom:10px}.mapwrap{min-height:380px}}
-</style></head><body><main class="app"><header><div><div class="brand">GEOGRAPHY PRACTICE</div><h1>Region Trainer</h1></div><button id="home" class="ghost hidden">← Countries</button></header><section id="choose"><h2>Choose a country</h2><p class="muted">Learn every state, province, and region by tapping the map.</p><div class="countries"><button class="country" data-country="RUS"><span class="flag">🇷🇺</span><span><strong>Russia</strong><span class="muted small">Federal subjects</span></span><span class="arrow">›</span></button><button class="country" data-country="IND"><span class="flag">🇮🇳</span><span><strong>India</strong><span class="muted small">States & territories</span></span><span class="arrow">›</span></button><button class="country" data-country="CHN"><span class="flag">🇨🇳</span><span><strong>China</strong><span class="muted small">Provincial divisions</span></span><span class="arrow">›</span></button></div><p id="offlineStatus" class="muted small" style="margin-top:20px">Preparing offline maps…</p><p class="footer">Map data: geoBoundaries / William & Mary geoLab, contributors (CC BY 4.0). Boundaries may be disputed or differ by source.</p></section><section id="game" class="hidden"><div class="settings"><label>Mode <select id="mode"><option value="quiz">Find on map</option><option value="study">Study (tap to reveal)</option></select></label><label>Order <select id="order"><option value="shuffle">Random</option><option value="ordered">Alphabetical</option></select></label></div><div class="panel"><div class="topline"><h2 id="countryTitle"></h2><span class="pill" id="count"></span></div><div class="stats"><span>Correct first try: <strong id="score">0</strong></span><span>Best: <strong id="best">—</strong></span></div><div class="progress"><div id="bar"></div></div><div id="question" class="question"></div><div class="mapwrap" id="map"><div class="busy">Loading region boundaries…</div></div><div id="feedback" class="feedback"></div><div class="controls"><button id="skip" class="secondary">Skip</button><button id="restart" class="secondary">Restart</button><button id="next" class="primary hidden">Next →</button></div></div><p class="footer">Pinch-zoom using your browser, or rotate your phone for a larger map. Small regions may be easier in landscape.</p></section></main><script>
+.mapwrap{touch-action:none}.mapwrap svg{touch-action:none}.map-tools{position:absolute;top:10px;right:10px;display:flex;gap:6px}.map-tools button{min-width:44px;min-height:44px;border:1px solid #ccd5e5;border-radius:10px;background:#fff;color:#273550;font-size:20px;box-shadow:0 2px 6px #18274818}.map-tools button:last-child{font-size:14px;padding:0 10px}</style></head><body><main class="app"><header><div><div class="brand">GEOGRAPHY PRACTICE</div><h1>Region Trainer</h1></div><button id="home" class="ghost hidden">← Countries</button></header><section id="choose"><h2>Choose a country</h2><p class="muted">Learn every state, province, and region by tapping the map.</p><div class="countries"><button class="country" data-country="RUS"><span class="flag">🇷🇺</span><span><strong>Russia</strong><span class="muted small">Federal subjects</span></span><span class="arrow">›</span></button><button class="country" data-country="IND"><span class="flag">🇮🇳</span><span><strong>India</strong><span class="muted small">States & territories</span></span><span class="arrow">›</span></button><button class="country" data-country="CHN"><span class="flag">🇨🇳</span><span><strong>China</strong><span class="muted small">Provincial divisions</span></span><span class="arrow">›</span></button></div><p id="offlineStatus" class="muted small" style="margin-top:20px">Preparing offline maps…</p><p class="footer">Map data: geoBoundaries / William & Mary geoLab, contributors (CC BY 4.0). Boundaries may be disputed or differ by source.</p></section><section id="game" class="hidden"><div class="settings"><label>Mode <select id="mode"><option value="quiz">Find on map</option><option value="study">Study (tap to reveal)</option></select></label><label>Order <select id="order"><option value="shuffle">Random</option><option value="ordered">Alphabetical</option></select></label></div><div class="panel"><div class="topline"><h2 id="countryTitle"></h2><span class="pill" id="count"></span></div><div class="stats"><span>Correct first try: <strong id="score">0</strong></span><span>Best: <strong id="best">—</strong></span></div><div class="progress"><div id="bar"></div></div><div id="question" class="question"></div><div class="mapwrap" id="map"><div class="busy">Loading region boundaries…</div></div><div id="feedback" class="feedback"></div><div class="controls"><button id="skip" class="secondary">Skip</button><button id="restart" class="secondary">Restart</button><button id="next" class="primary hidden">Next →</button></div></div><p class="footer">Pinch to zoom, drag to move, or use + and −. Tap Reset to see the whole country.</p></section></main><script>
 'use strict';
 const countries={RUS:'Russia',IND:'India',CHN:'China'};
 const el=id=>document.getElementById(id);
@@ -35,7 +35,7 @@ function englishName(p,i){
 function getName(feature,i){return englishName(feature.properties||{},i)}
 function process(data){if(!data||!Array.isArray(data.features))throw Error('Invalid boundary data');return data.features.filter(f=>f.geometry&&['Polygon','MultiPolygon'].includes(f.geometry.type)).map((f,i)=>({geometry:f.geometry,name:getName(f,i),id:i})).filter(f=>f.name)}
 function boundsOf(fs){let minX=Infinity,minY=Infinity,maxX=-Infinity,maxY=-Infinity;function walk(a){if(typeof a[0]==='number'){const [rawX,y]=a;const x=country==='RUS'&&rawX<0?rawX+360:rawX;if(x<minX)minX=x;if(x>maxX)maxX=x;if(y<minY)minY=y;if(y>maxY)maxY=y}else a.forEach(walk)}fs.forEach(f=>walk(f.geometry.coordinates));return [minX,minY,maxX,maxY]}
-function drawMap(){const W=1000,H=850,pad=18;let [xmin,ymin,xmax,ymax]=boundsOf(features);const centerLat=(ymin+ymax)/2*Math.PI/180,scaleX=Math.max(.35,Math.cos(centerLat));let spanX=(xmax-xmin)*scaleX,spanY=(ymax-ymin);const factor=Math.min((W-2*pad)/spanX,(H-2*pad)/spanY);const offX=(W-spanX*factor)/2,offY=(H-spanY*factor)/2;const project=([rawX,y])=>{const x=country==='RUS'&&rawX<0?rawX+360:rawX;return [offX+(x-xmin)*scaleX*factor,offY+(ymax-y)*factor]};function ringToPath(r){return r.map((p,i)=>{const [x,y]=project(p);return(i?'L':'M')+x.toFixed(2)+' '+y.toFixed(2)}).join('')+'Z'}function path(geom){const polys=geom.type==='Polygon'?[geom.coordinates]:geom.coordinates;return polys.map(poly=>poly.map(ringToPath).join('')).join('')};const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.setAttribute('viewBox',`0 0 ${W} ${H}`);svg.setAttribute('aria-label',`${countries[country]} interactive map`);svg.setAttribute('role','group');paths=[];features.forEach(f=>{let node=document.createElementNS('http://www.w3.org/2000/svg','path');node.setAttribute('d',path(f.geometry));node.setAttribute('class','region');node.setAttribute('fill-rule','evenodd');node.setAttribute('aria-label',f.name);node.addEventListener('click',()=>tap(f));svg.appendChild(node);paths.push(node)});el('map').replaceChildren(svg)}
+function drawMap(){const W=1000,H=850,pad=18;let [xmin,ymin,xmax,ymax]=boundsOf(features);const centerLat=(ymin+ymax)/2*Math.PI/180,scaleX=Math.max(.35,Math.cos(centerLat));let spanX=(xmax-xmin)*scaleX,spanY=(ymax-ymin);const factor=Math.min((W-2*pad)/spanX,(H-2*pad)/spanY);const offX=(W-spanX*factor)/2,offY=(H-spanY*factor)/2;const project=([rawX,y])=>{const x=country==='RUS'&&rawX<0?rawX+360:rawX;return [offX+(x-xmin)*scaleX*factor,offY+(ymax-y)*factor]};function ringToPath(r){return r.map((p,i)=>{const [x,y]=project(p);return(i?'L':'M')+x.toFixed(2)+' '+y.toFixed(2)}).join('')+'Z'}function path(geom){const polys=geom.type==='Polygon'?[geom.coordinates]:geom.coordinates;return polys.map(poly=>poly.map(ringToPath).join('')).join('')};const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.setAttribute('viewBox',`0 0 ${W} ${H}`);svg.setAttribute('aria-label',`${countries[country]} interactive map`);svg.setAttribute('role','group');paths=[];features.forEach(f=>{let node=document.createElementNS('http://www.w3.org/2000/svg','path');node.setAttribute('d',path(f.geometry));node.setAttribute('class','region');node.setAttribute('fill-rule','evenodd');node.setAttribute('aria-label',f.name);node.addEventListener('click',()=>tap(f));svg.appendChild(node);paths.push(node)});el('map').replaceChildren(svg);enableMapNavigation(svg)}
 function tap(f){if(el('mode').value==='study'){paths.forEach(p=>p.classList.remove('study'));paths[f.id].classList.add('study');el('feedback').textContent=f.name;return}if(locked||index>=queue.length)return;const target=queue[index];if(f.id===target.id){paths[f.id].classList.remove('wrong');paths[f.id].classList.add('correct');if(attempts===0)correctFirst++;locked=true;el('feedback').textContent='✓ '+f.name;el('feedback').className='feedback good';el('score').textContent=correctFirst;el('next').classList.remove('hidden');el('skip').classList.add('hidden');saveBest();}else{attempts++;paths[f.id].classList.add('wrong');setTimeout(()=>paths[f.id]?.classList.remove('wrong'),550);el('feedback').textContent=`Not ${f.name} — try again`;el('feedback').className='feedback bad'}}
 function saveBest(){try{const key='regiontrainer-best-'+country;const old=Number(localStorage.getItem(key)||0);if(correctFirst>old)localStorage.setItem(key,correctFirst);el('best').textContent=localStorage.getItem(key)||'—'}catch{}}
 function begin(){if(!features.length)return;queue=el('order').value==='shuffle'?randomize(features):[...features].sort((a,b)=>a.name.localeCompare(b.name));index=0;correctFirst=0;attempts=0;locked=false;paths.forEach(p=>p.setAttribute('class','region'));updateView()}
@@ -63,4 +63,93 @@ window.addEventListener('load',()=>prepareOffline());
 async function openCountry(code){const token=++loadingToken;country=code;el('choose').classList.add('hidden');el('game').classList.remove('hidden');el('home').classList.remove('hidden');el('countryTitle').textContent=countries[code];el('map').innerHTML='<div class="busy">Loading region boundaries…</div>';el('question').textContent='';el('feedback').textContent='';el('count').textContent='';el('skip').disabled=true;el('restart').disabled=true;try{const data=await readCache(code)||await fetchRemote(code);if(token!==loadingToken)return;features=process(data);if(!features.length)throw Error('No regions found in boundary data');await writeCache(code,data);drawMap();el('skip').disabled=false;el('restart').disabled=false;try{el('best').textContent=localStorage.getItem('regiontrainer-best-'+code)||'—'}catch{el('best').textContent='—'}begin()}catch(error){if(token!==loadingToken)return;el('map').innerHTML=`<div class="error" style="padding:24px">${escapeHTML(error.message)}</div>`;el('question').textContent='Map unavailable';el('feedback').textContent='';}}
 function goHome(){loadingToken++;country='';el('game').classList.add('hidden');el('choose').classList.remove('hidden');el('home').classList.add('hidden')}
 document.querySelectorAll('[data-country]').forEach(b=>b.addEventListener('click',()=>openCountry(b.dataset.country)));el('home').addEventListener('click',goHome);el('next').addEventListener('click',next);el('skip').addEventListener('click',skip);el('restart').addEventListener('click',begin);el('mode').addEventListener('change',begin);el('order').addEventListener('change',begin);
+
+function enableMapNavigation(svg){
+ const original={x:0,y:0,w:1000,h:850};
+ let view={...original},gesture=null,moved=false;
+ const pointers=new Map();
+ const wrap=el('map');
+ const toolbar=document.createElement('div');
+ toolbar.className='map-tools';
+ toolbar.innerHTML='<button type="button" aria-label="Zoom in">+</button><button type="button" aria-label="Zoom out">−</button><button type="button" aria-label="Reset map view">Reset</button>';
+ wrap.appendChild(toolbar);
+ function render(){
+  view.w=Math.max(original.w/12,Math.min(original.w,view.w));
+  view.h=view.w*original.h/original.w;
+  view.x=Math.max(0,Math.min(original.w-view.w,view.x));
+  view.y=Math.max(0,Math.min(original.h-view.h,view.y));
+  svg.setAttribute('viewBox',[view.x,view.y,view.w,view.h].join(' '));
+  toolbar.children[0].disabled=view.w<=original.w/12;
+  toolbar.children[1].disabled=view.w>=original.w;
+ }
+ function point(p){return new DOMPoint(p.x,p.y).matrixTransform(svg.getScreenCTM().inverse())}
+ function zoom(factor,anchor){
+  const a=anchor||{x:view.x+view.w/2,y:view.y+view.h/2};
+  const w=Math.max(original.w/12,Math.min(original.w,view.w*factor)),ratio=w/view.w;
+  view={x:a.x-(a.x-view.x)*ratio,y:a.y-(a.y-view.y)*ratio,w,h:w*original.h/original.w};render();
+ }
+ toolbar.children[0].onclick=()=>zoom(1/1.6);
+ toolbar.children[1].onclick=()=>zoom(1.6);
+ toolbar.children[2].onclick=()=>{view={...original};render()};
+ function snapshot(){
+  const ps=[...pointers.values()];
+  gesture={view:{...view},points:ps.map(p=>({...p})),matrix:svg.getScreenCTM().inverse()};
+ }
+ svg.addEventListener('pointerdown',e=>{
+  if(e.pointerType==='mouse'&&e.button!==0)return;
+  if(!pointers.size)moved=false;
+  pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});
+  svg.setPointerCapture(e.pointerId);snapshot();
+ });
+ svg.addEventListener('pointermove',e=>{
+  if(!pointers.has(e.pointerId)||!gesture)return;
+  pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});
+  const ps=[...pointers.values()],start=gesture.points;
+  if(ps.length!==start.length)return;
+  if(ps.some((p,i)=>Math.hypot(p.x-start[i].x,p.y-start[i].y)>6))moved=true;
+  if(!moved)return;
+  const mid=a=>({x:a.reduce((s,p)=>s+p.x,0)/a.length,y:a.reduce((s,p)=>s+p.y,0)/a.length});
+  const from=mid(start),to=mid(ps);
+  const a=new DOMPoint(from.x,from.y).matrixTransform(gesture.matrix);
+  const b=new DOMPoint(to.x,to.y).matrixTransform(gesture.matrix);
+  let ratio=1;
+  if(ps.length===2){
+   const d=a=>Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y);
+   ratio=d(start)/Math.max(1,d(ps));
+  }
+  const w=Math.max(original.w/12,Math.min(original.w,gesture.view.w*ratio));
+  ratio=w/gesture.view.w;
+  view={x:a.x-(b.x-gesture.view.x)*ratio,y:a.y-(b.y-gesture.view.y)*ratio,w,h:w*original.h/original.w};render();
+ });
+ function release(e){
+  if(!pointers.has(e.pointerId))return;
+  if(e.type==='pointercancel')moved=true;
+  pointers.delete(e.pointerId);
+  if(pointers.size)snapshot();else gesture=null;
+ }
+ svg.addEventListener('pointerup',release);
+ svg.addEventListener('pointercancel',release);
+ svg.addEventListener('click',e=>{
+  e.stopImmediatePropagation();
+  if(moved){moved=false;return}
+  // Pointer capture retargets clicks to the SVG; hit-test at the finger position.
+  const target=document.elementFromPoint(e.clientX,e.clientY);
+  let i=paths.indexOf(target);
+  if(i<0){
+   let nearest=15;
+   const scale=svg.getScreenCTM().a;
+   const p=point({x:e.clientX,y:e.clientY});
+   paths.forEach((path,n)=>{
+    const b=path.getBBox();
+    if(b.width*scale>28||b.height*scale>28)return;
+    const distance=Math.hypot(Math.max(b.x-p.x,0,p.x-b.x-b.width),Math.max(b.y-p.y,0,p.y-b.y-b.height))*scale;
+    if(distance<nearest){nearest=distance;i=n}
+   });
+  }
+  if(i>=0)tap(features[i]);
+ },true);
+ svg.addEventListener('wheel',e=>{e.preventDefault();zoom(e.deltaY<0?1/1.2:1.2,point({x:e.clientX,y:e.clientY}))},{passive:false});
+ render();
+}
+
 </script></body></html>
